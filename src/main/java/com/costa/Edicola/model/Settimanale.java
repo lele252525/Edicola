@@ -12,12 +12,12 @@ import lombok.ToString;
 @Table(name = "biglietti")
 @Getter @Setter @ToString
 @AllArgsConstructor
-public class Giornaliero extends Biglietto {
+public class Settimanale extends Biglietto {
 	
 	@Column(name = "tipo")
 	private String tipo;
 	
 	@Column(name = "scadenza")
-	private int giornoValidità;
+	private int settimanaValidità;
 	
 }
