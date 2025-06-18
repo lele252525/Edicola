@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import lombok.ToString;
 @Table(name = "biglietti")
 @Getter @Setter @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Giornaliero extends Biglietto {
 	
 	@Column(name = "tipo")

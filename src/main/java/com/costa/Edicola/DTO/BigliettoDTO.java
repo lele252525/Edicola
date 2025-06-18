@@ -1,4 +1,4 @@
-package DTO;
+package com.costa.Edicola.DTO;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;
@@ -14,12 +14,11 @@ public class BigliettoDTO {
 	@NotNull(message = "Il numero è obbligatorio")
 	@Min(1)
 	private int numero;
-	
-	@NotNull(message = "Dichiarare data di emissione")
+	@NotNull(message = "La dichiarazione della data di emissione è obbligatoria")
 	private String dataEmissione;
-	
+	@NotNull(message = "La dichiarazione della tipologia è obbligatoria")
 	private String tipo;
+	@NotNull(message = "La dichiarazione della scadenza è obbligatoria")
 	private int validità;
-	
 	
 }

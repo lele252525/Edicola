@@ -1,4 +1,4 @@
-package service;
+package com.costa.Edicola.service;
 
 public interface EdicolaService {
 	
