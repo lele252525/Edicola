@@ -17,7 +17,7 @@ import lombok.ToString;
 public class Settimanale extends Biglietto {
 	
 	@Column(name = "tipo")
-	private String tipo;
+	private String tipo = "Settimanale";
 	
 	@Column(name = "scadenza")
 	private int settimanaValidità;

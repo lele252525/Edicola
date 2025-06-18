@@ -17,7 +17,7 @@ import lombok.ToString;
 public class Mensile extends Biglietto {
 	
 	@Column(name = "tipo")
-	private String tipo;
+	private String tipo = "Mensile";
 	
 	@Column(name = "scadenza")
 	private int meseValidità;

@@ -17,7 +17,7 @@ import lombok.ToString;
 public class Giornaliero extends Biglietto {
 	
 	@Column(name = "tipo")
-	private String tipo;
+	private String tipo = "Giornaliero";
 	
 	@Column(name = "scadenza")
 	private int giornoValidità;
