@@ -1,5 +1,7 @@
 package com.costa.Edicola.model;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
@@ -26,6 +28,6 @@ public class Biglietto {
 	@Column(name = "numero")
 	private int numero;
 	@Column(name = "data_emissione")
-	private String dataEmissione;
+	private LocalDateTime dataEmissione;
 	
 }

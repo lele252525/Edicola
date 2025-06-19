@@ -1,4 +1,4 @@
-package costanti;
+package com.costa.Edicola.costanti;
 
 public class EdicolaCostanti {
 	
