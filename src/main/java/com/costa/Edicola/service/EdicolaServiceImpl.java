@@ -62,7 +62,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 	
 	@Override
 	public BigliettoDTO readGiornaliero(BigliettoDTO bigliettoDTO) {
-		Optional<Giornaliero> giornaliero = edilRepo.findByIdGiornaliero(bigliettoDTO.getId());
+		Optional<Giornaliero> giornaliero = edilRepo.findByNumeroGiornaliero(bigliettoDTO.getNumero());
 		if(giornaliero.isEmpty()) {
 			System.out.println("Il biglietto non esiste...");
 		}
@@ -72,7 +72,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 
 	@Override
 	public BigliettoDTO readSettimanale(BigliettoDTO bigliettoDTO) {
-		Optional<Settimanale> settimanale = edilRepo.findByIdSettimanale(bigliettoDTO.getId());
+		Optional<Settimanale> settimanale = edilRepo.findByMuneroSettimanale(bigliettoDTO.getNumero());
 		if(settimanale.isEmpty()) {
 			System.out.println("Il biglietto non esiste...");
 		}
@@ -82,7 +82,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 
 	@Override
 	public BigliettoDTO readMensile(BigliettoDTO bigliettoDTO) {
-		Optional<Mensile> mensile = edilRepo.findByIdMensile(bigliettoDTO.getId());
+		Optional<Mensile> mensile = edilRepo.findByNumeroMensile(bigliettoDTO.getNumero());
 		if(mensile.isEmpty()) {
 			System.out.println("Il biglietto non esiste...");
 		}

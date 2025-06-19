@@ -15,9 +15,9 @@ import jakarta.transaction.Transactional;
 @RepositoryRestResource
 public interface EdicolaRepository extends JpaRepository<Biglietto, Long> {
 	
-	public Optional<Giornaliero> findByIdGiornaliero(Long id);
-	public Optional<Settimanale> findByIdSettimanale(Long id);
-	public Optional<Mensile> findByIdMensile(Long id);
+	public Optional<Giornaliero> findByNumeroGiornaliero(int numero);
+	public Optional<Settimanale> findByMuneroSettimanale(int numero);
+	public Optional<Mensile> findByNumeroMensile(int numero);
 	
 	@Transactional
 	public void deleteById (Long id);
