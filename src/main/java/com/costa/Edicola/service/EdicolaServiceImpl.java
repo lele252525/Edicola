@@ -36,50 +36,58 @@ public class EdicolaServiceImpl implements EdicolaService{
 
 	@Override
 	public void createSettimanale(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
+		if(bigliettoDTO.getId() != null) {
+			Optional<Biglietto> controllo = edilRepo.findById(bigliettoDTO.getId());
+			if (controllo.isPresent()) {
+				throw new BigliettoException("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
+			}
+		}
+		Settimanale settimanale = DTOmapper.DtoToSettimanale(bigliettoDTO);
+		settimanale.setDataEmissione(LocalDateTime.now());
+		edilRepo.save(settimanale);
 	}
 
 	@Override
 	public void createMensile(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
+		if(bigliettoDTO.getId() != null) {
+			Optional<Biglietto> controllo = edilRepo.findById(bigliettoDTO.getId());
+			if (controllo.isPresent()) {
+				throw new BigliettoException("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
+			}
+		}
+		Mensile mensile = DTOmapper.DtoToMensile(bigliettoDTO);
+		mensile.setDataEmissione(LocalDateTime.now());
+		edilRepo.save(mensile);
+	}
+	
+	@Override
+	public BigliettoDTO readGiornaliero(BigliettoDTO bigliettoDTO) {
+		Optional<Giornaliero> giornaliero = edilRepo.findByIdGiornaliero(bigliettoDTO.getId());
+		if(giornaliero.isEmpty()) {
+			System.out.println("Il biglietto non esiste...");
+		}
+		BigliettoDTO dtoBiglietto = DTOmapper.giornalieroToDto(giornaliero.get());
+		return dtoBiglietto;
 	}
 
 	@Override
-	public void readGiornaliero(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
+	public BigliettoDTO readSettimanale(BigliettoDTO bigliettoDTO) {
+		Optional<Settimanale> settimanale = edilRepo.findByIdSettimanale(bigliettoDTO.getId());
+		if(settimanale.isEmpty()) {
+			System.out.println("Il biglietto non esiste...");
+		}
+		BigliettoDTO dtoBiglietto = DTOmapper.settimanaleToDto(settimanale.get());
+		return dtoBiglietto;
 	}
 
 	@Override
-	public void readSettimanale(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void readMensile(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteGiornaliero(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteSettimanale(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteMensile(BigliettoDTO bigliettoDTO) {
-		// TODO Auto-generated method stub
-		
+	public BigliettoDTO readMensile(BigliettoDTO bigliettoDTO) {
+		Optional<Mensile> mensile = edilRepo.findByIdMensile(bigliettoDTO.getId());
+		if(mensile.isEmpty()) {
+			System.out.println("Il biglietto non esiste...");
+		}
+		BigliettoDTO dtoBiglietto = DTOmapper.mensileToDto(mensile.get());
+		return dtoBiglietto;
 	}
 	
 	@Override

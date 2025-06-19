@@ -1,8 +1,11 @@
 package com.costa.Edicola.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,14 +23,28 @@ import com.costa.Edicola.service.EdicolaService;
 public class EdicolaController {
 	
 	@Autowired
-	EdicolaRepository ediRepo;
+	EdicolaRepository edilRepo;
 	@Autowired
-	EdicolaService ediService;
+	EdicolaService edilService;
 	
 	@PostMapping(EdicolaCostanti.NUOVO_BIGL_END_POINT)
 	public ResponseEntity<ResponseDTO> creaBiglietto (BigliettoDTO bigliettoDTO) {
+		if(bigliettoDTO.getNumero() == 1) {
+			edilService.createGiornaliero(bigliettoDTO);
+		}else if(bigliettoDTO.getNumero() == 2) {
+			edilService.createSettimanale(bigliettoDTO);
+		} else if(bigliettoDTO.getNumero() == 3) {
+			edilService.createMensile(bigliettoDTO);
+		}
 		
-		return null;
+		return ResponseEntity
+				.status(HttpStatus.CREATED)
+				.body(new ResponseDTO(EdicolaCostanti.STATUS_201, EdicolaCostanti.STATUS_201_MESSAGE));
+	}
+	
+	@GetMapping(EdicolaCostanti.LEGGI_BIGL_END_POINT)
+	public ResponseEntity<ResponseDTO> leggiBiglietto (BigliettoDTO bigliettoDTO) {
+		Biglietto biglietto = edilRepo.
 		
 	}
 	

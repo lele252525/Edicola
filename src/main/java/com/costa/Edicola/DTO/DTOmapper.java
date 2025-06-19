@@ -1,5 +1,6 @@
 package com.costa.Edicola.DTO;
 
+import com.costa.Edicola.model.Biglietto;
 import com.costa.Edicola.model.Giornaliero;
 import com.costa.Edicola.model.Mensile;
 import com.costa.Edicola.model.Settimanale;
