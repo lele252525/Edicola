@@ -26,7 +26,7 @@ public class Biglietto {
 	private Long id;
 	
 	@Column(name = "numero")
-	private int numero;
+	private Integer numero;
 	@Column(name = "data_emissione")
 	private LocalDateTime dataEmissione;
 	

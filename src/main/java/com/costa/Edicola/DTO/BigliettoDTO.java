@@ -13,7 +13,7 @@ public class BigliettoDTO {
 	
 	@NotNull(message = "Il numero è obbligatorio")
 	@Min(1)
-	private int numero;
+	private Integer numero;
 	
 	private String dataEmissione;
 	

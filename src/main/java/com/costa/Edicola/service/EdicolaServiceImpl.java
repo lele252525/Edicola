@@ -72,7 +72,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 
 	@Override
 	public BigliettoDTO readSettimanale(BigliettoDTO bigliettoDTO) {
-		Optional<Settimanale> settimanale = edilRepo.findByMuneroSettimanale(bigliettoDTO.getNumero());
+		Optional<Settimanale> settimanale = edilRepo.findByNumeroSettimanale(bigliettoDTO.getNumero());
 		if(settimanale.isEmpty()) {
 			System.out.println("Il biglietto non esiste...");
 		}
