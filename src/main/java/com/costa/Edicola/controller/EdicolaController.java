@@ -46,8 +46,8 @@ public class EdicolaController {
 	
 	@GetMapping(EdicolaCostanti.LEGGI_BIGL_END_POINT)
 	public ResponseEntity<ResponseDTO> leggiBiglietto (BigliettoDTO bigliettoDTO) {
-		if(bigliettoDTO.getNumero() != null) {
-			Optional<Biglietto> controllo
+		if(bigliettoDTO.getId() == 1) {
+			
 		}
 	}
 	
