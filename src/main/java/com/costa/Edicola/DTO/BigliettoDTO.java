@@ -16,9 +16,12 @@ public class BigliettoDTO {
 	private int numero;
 	
 	private String dataEmissione;
-	@NotNull(message = "Inserire '1' per Giornaliero; '2' per Settimanale; '3' per Mensile")
-	private String tipo;
+	
+	@NotNull(message = "Inserire tipologia: '1' Giornaliero, '2' Settimanale, '3' Mensile")
+	private int tipoNum;
 	@NotNull(message = "La dichiarazione della scadenza è obbligatoria")
 	private int validità;
+	
+	private String tipo;
 	
 }

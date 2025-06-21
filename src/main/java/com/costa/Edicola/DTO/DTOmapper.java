@@ -12,7 +12,7 @@ public class DTOmapper {
 		Giornaliero giornaliero = new Giornaliero();
 		giornaliero.setId(bigliettoDTO.getId());
 		giornaliero.setNumero(bigliettoDTO.getNumero());
-		giornaliero.setTipo(bigliettoDTO.getTipo());
+		giornaliero.getTipo();
 		giornaliero.setGiornoValidità(bigliettoDTO.getValidità());
 		return giornaliero;
 	}
@@ -31,7 +31,7 @@ public class DTOmapper {
 		Settimanale settimanale = new Settimanale();
 		settimanale.setId(bigliettoDTO.getId());
 		settimanale.setNumero(bigliettoDTO.getNumero());
-		settimanale.setTipo(bigliettoDTO.getTipo());
+		settimanale.getTipo();
 		settimanale.setSettimanaValidità(bigliettoDTO.getValidità());
 		return settimanale;
 	}
@@ -50,7 +50,7 @@ public class DTOmapper {
 		Mensile mensile = new Mensile();
 		mensile.setId(bigliettoDTO.getId());
 		mensile.setNumero(bigliettoDTO.getNumero());
-		mensile.setTipo(bigliettoDTO.getTipo());
+		mensile.getTipo();
 		mensile.setMeseValidità(bigliettoDTO.getValidità());
 		return mensile;
 	}

@@ -29,12 +29,14 @@ public class EdicolaController {
 	
 	@PostMapping(EdicolaCostanti.NUOVO_BIGL_END_POINT)
 	public ResponseEntity<ResponseDTO> creaBiglietto (BigliettoDTO bigliettoDTO) {
-		if(bigliettoDTO.getNumero() == 1) {
+		if(bigliettoDTO.getTipoNum() == 1) {
 			edilService.createGiornaliero(bigliettoDTO);
-		}else if(bigliettoDTO.getNumero() == 2) {
+		}else if(bigliettoDTO.getTipoNum() == 2) {
 			edilService.createSettimanale(bigliettoDTO);
-		} else if(bigliettoDTO.getNumero() == 3) {
+		} else if(bigliettoDTO.getTipoNum() == 3) {
 			edilService.createMensile(bigliettoDTO);
+		} else {
+			System.out.println("Inserire correttamente la tipologia del biglietto");
 		}
 		
 		return ResponseEntity
@@ -44,7 +46,6 @@ public class EdicolaController {
 	
 	@GetMapping(EdicolaCostanti.LEGGI_BIGL_END_POINT)
 	public ResponseEntity<ResponseDTO> leggiBiglietto (BigliettoDTO bigliettoDTO) {
-		Biglietto biglietto = edilRepo.
 		
 	}
 	
