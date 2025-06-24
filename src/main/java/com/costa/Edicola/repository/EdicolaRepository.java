@@ -17,9 +17,9 @@ public interface EdicolaRepository extends JpaRepository<Biglietto, Long> {
 	
 	public Optional<Biglietto> findById(Long id);
 	
-	public Optional<Giornaliero> findByNumeroGiornaliero(int numero);
-	public Optional<Settimanale> findByNumeroSettimanale(int numero);
-	public Optional<Mensile> findByNumeroMensile(int numero);
+	public Optional<Giornaliero> findByIdGiornaliero(Long id);
+	public Optional<Settimanale> findByIdSettimanale(Long id);
+	public Optional<Mensile> findByIdMensile(Long id);
 	
 	@Transactional
 	public void deleteById (Long id);

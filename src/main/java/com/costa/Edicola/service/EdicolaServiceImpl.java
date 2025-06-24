@@ -61,32 +61,20 @@ public class EdicolaServiceImpl implements EdicolaService{
 	}
 	
 	@Override
-	public BigliettoDTO readGiornaliero(BigliettoDTO bigliettoDTO) {
-		Optional<Giornaliero> giornaliero = edilRepo.findByNumeroGiornaliero(bigliettoDTO.getNumero());
-		if(giornaliero.isEmpty()) {
+	public BigliettoDTO readBiglietto(Long id) {
+		Optional<Giornaliero> giornaliero = edilRepo.findByIdGiornaliero(id);
+		Optional<Settimanale> settimanale = edilRepo.findByIdSettimanale(id);
+		Optional<Mensile> mensile = edilRepo.findByIdMensile(id);
+		BigliettoDTO dtoBiglietto = new BigliettoDTO();
+		if (giornaliero.isPresent()) {
+			dtoBiglietto = DTOmapper.giornalieroToDto(giornaliero.get());
+		} else if (settimanale.isPresent()) {
+			dtoBiglietto = DTOmapper.settimanaleToDto(settimanale.get());
+		} else if (mensile.isPresent()) {
+			dtoBiglietto = DTOmapper.settimanaleToDto(settimanale.get());
+		} else if(giornaliero.isEmpty() && settimanale.isEmpty() && mensile.isEmpty()) {
 			System.out.println("Il biglietto non esiste...");
 		}
-		BigliettoDTO dtoBiglietto = DTOmapper.giornalieroToDto(giornaliero.get());
-		return dtoBiglietto;
-	}
-
-	@Override
-	public BigliettoDTO readSettimanale(BigliettoDTO bigliettoDTO) {
-		Optional<Settimanale> settimanale = edilRepo.findByNumeroSettimanale(bigliettoDTO.getNumero());
-		if(settimanale.isEmpty()) {
-			System.out.println("Il biglietto non esiste...");
-		}
-		BigliettoDTO dtoBiglietto = DTOmapper.settimanaleToDto(settimanale.get());
-		return dtoBiglietto;
-	}
-
-	@Override
-	public BigliettoDTO readMensile(BigliettoDTO bigliettoDTO) {
-		Optional<Mensile> mensile = edilRepo.findByNumeroMensile(bigliettoDTO.getNumero());
-		if(mensile.isEmpty()) {
-			System.out.println("Il biglietto non esiste...");
-		}
-		BigliettoDTO dtoBiglietto = DTOmapper.mensileToDto(mensile.get());
 		return dtoBiglietto;
 	}
 	

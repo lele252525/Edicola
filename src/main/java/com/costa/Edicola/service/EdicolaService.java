@@ -15,8 +15,6 @@ public interface EdicolaService {
 	public void createSettimanale(BigliettoDTO bigliettoDTO);
 	public void createMensile(BigliettoDTO bigliettoDTO);
 	
-	public BigliettoDTO readGiornaliero(BigliettoDTO bigliettoDTO);
-	public BigliettoDTO readSettimanale(BigliettoDTO bigliettoDTO);
-	public BigliettoDTO readMensile(BigliettoDTO bigliettoDTO);
+	public BigliettoDTO readBiglietto(Long id);
 	
 }
