@@ -13,13 +13,22 @@ import com.costa.Edicola.model.Biglietto;
 import com.costa.Edicola.model.Giornaliero;
 import com.costa.Edicola.model.Mensile;
 import com.costa.Edicola.model.Settimanale;
-import com.costa.Edicola.repository.EdicolaRepository;
+import com.costa.Edicola.repository.EdicolaReposBigl;
+import com.costa.Edicola.repository.EdicolaRepositoryGiorn;
+import com.costa.Edicola.repository.EdicolaRepositoryMens;
+import com.costa.Edicola.repository.EdicolaRepositorySett;
 
 @Service
 public class EdicolaServiceImpl implements EdicolaService{
 	
 	@Autowired
-	EdicolaRepository edilRepo;
+	EdicolaReposBigl edilRepo;
+	@Autowired
+	EdicolaRepositoryGiorn edilRepoGiorn;
+	@Autowired
+	EdicolaRepositorySett edilRepoSett;
+	@Autowired
+	EdicolaRepositoryMens edilRepoMens;
 	
 	@Override
 	public void createGiornaliero(BigliettoDTO bigliettoDTO) {
@@ -62,16 +71,16 @@ public class EdicolaServiceImpl implements EdicolaService{
 	
 	@Override
 	public BigliettoDTO readBiglietto(Long id) {
-		Optional<Giornaliero> giornaliero = edilRepo.findByIdGiornaliero(id);
-		Optional<Settimanale> settimanale = edilRepo.findByIdSettimanale(id);
-		Optional<Mensile> mensile = edilRepo.findByIdMensile(id);
 		BigliettoDTO dtoBiglietto = new BigliettoDTO();
+		Optional<Giornaliero> giornaliero = edilRepoGiorn.findById(id);
+		Optional<Settimanale> settimanale = edilRepoSett.findById(id);
+		Optional<Mensile> mensile = edilRepoMens.findById(id);
 		if (giornaliero.isPresent()) {
 			dtoBiglietto = DTOmapper.giornalieroToDto(giornaliero.get());
 		} else if (settimanale.isPresent()) {
 			dtoBiglietto = DTOmapper.settimanaleToDto(settimanale.get());
 		} else if (mensile.isPresent()) {
-			dtoBiglietto = DTOmapper.settimanaleToDto(settimanale.get());
+			dtoBiglietto = DTOmapper.mensileToDto(mensile.get());
 		} else if(giornaliero.isEmpty() && settimanale.isEmpty() && mensile.isEmpty()) {
 			System.out.println("Il biglietto non esiste...");
 		}

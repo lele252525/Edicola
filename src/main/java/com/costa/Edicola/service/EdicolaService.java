@@ -1,9 +1,6 @@
 package com.costa.Edicola.service;
 
 import com.costa.Edicola.DTO.BigliettoDTO;
-import com.costa.Edicola.model.Giornaliero;
-import com.costa.Edicola.model.Mensile;
-import com.costa.Edicola.model.Settimanale;
 
 public interface EdicolaService {
 	

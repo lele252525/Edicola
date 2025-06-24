@@ -22,7 +22,6 @@ import lombok.ToString;
 public class Biglietto {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "numero")

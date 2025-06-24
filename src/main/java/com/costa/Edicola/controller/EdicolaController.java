@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.costa.Edicola.DTO.BigliettoDTO;
 import com.costa.Edicola.DTO.ResponseDTO;
 import com.costa.Edicola.costanti.EdicolaCostanti;
-import com.costa.Edicola.repository.EdicolaRepository;
+import com.costa.Edicola.repository.EdicolaReposBigl;
 import com.costa.Edicola.service.EdicolaService;
 
 import jakarta.validation.Valid;
-
 
 @RestController
 @RequestMapping(path = EdicolaCostanti.INGRESSO_END_POINT)
@@ -27,7 +26,7 @@ import jakarta.validation.Valid;
 public class EdicolaController {
 	
 	@Autowired
-	EdicolaRepository edilRepo;
+	EdicolaReposBigl edilRepo;
 	@Autowired
 	EdicolaService edilService;
 	
