@@ -2,12 +2,14 @@ package com.costa.Edicola.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.costa.Edicola.DTO.BigliettoDTO;
@@ -15,6 +17,8 @@ import com.costa.Edicola.DTO.ResponseDTO;
 import com.costa.Edicola.costanti.EdicolaCostanti;
 import com.costa.Edicola.repository.EdicolaRepository;
 import com.costa.Edicola.service.EdicolaService;
+
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -28,7 +32,7 @@ public class EdicolaController {
 	EdicolaService edilService;
 	
 	@PostMapping(EdicolaCostanti.NUOVO_BIGL_END_POINT)
-	public ResponseEntity<ResponseDTO> creaBiglietto (BigliettoDTO bigliettoDTO) {
+	public ResponseEntity<ResponseDTO> creaBiglietto (@Valid @RequestBody BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getTipoNum() == 1) {
 			edilService.createGiornaliero(bigliettoDTO);
 		}else if(bigliettoDTO.getTipoNum() == 2) {
@@ -45,12 +49,19 @@ public class EdicolaController {
 	}
 	
 	@GetMapping(EdicolaCostanti.LEGGI_BIGL_END_POINT)
-	public ResponseEntity<ResponseDTO> leggiBiglietto (Long id) {
-		edilService.readBiglietto(id);
+	public ResponseEntity<BigliettoDTO> leggiBiglietto (@RequestParam Long id) {
+		BigliettoDTO bigliettoDTO = edilService.readBiglietto(id);
 		return ResponseEntity
-				.status(null)
-				.body(null);
-		
+				.status(HttpStatus.OK)
+				.body(bigliettoDTO);
+	}
+	
+	@DeleteMapping(EdicolaCostanti.CANC_BIGL_END_POINT)
+	public ResponseEntity<ResponseDTO> cancellaBiglietto (@RequestParam Long id) {
+		edilRepo.deleteById(id);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(new ResponseDTO(EdicolaCostanti.STATUS_200, EdicolaCostanti.STATUS_200_MESSAGE));
 	}
 	
 }
