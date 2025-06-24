@@ -33,15 +33,17 @@ public class EdicolaController {
 	@PostMapping(EdicolaCostanti.NUOVO_BIGL_END_POINT)
 	public ResponseEntity<ResponseDTO> creaBiglietto (@Valid @RequestBody BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getTipoNum() == 1) {
+			edilService.controlloGiorno(bigliettoDTO);
 			edilService.createGiornaliero(bigliettoDTO);
 		}else if(bigliettoDTO.getTipoNum() == 2) {
+			edilService.controlloSettimana(bigliettoDTO);
 			edilService.createSettimanale(bigliettoDTO);
 		} else if(bigliettoDTO.getTipoNum() == 3) {
+			edilService.controlloMese(bigliettoDTO);
 			edilService.createMensile(bigliettoDTO);
 		} else {
 			System.out.println("Inserire correttamente la tipologia del biglietto");
 		}
-		
 		return ResponseEntity
 				.status(HttpStatus.CREATED)
 				.body(new ResponseDTO(EdicolaCostanti.STATUS_201, EdicolaCostanti.STATUS_201_MESSAGE));

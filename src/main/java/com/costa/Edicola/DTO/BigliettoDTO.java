@@ -1,5 +1,7 @@
 package com.costa.Edicola.DTO;
 
+import com.costa.Edicola.costanti.EdicolaCostanti;
+
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -8,7 +10,7 @@ import lombok.Data;
 @Data
 public class BigliettoDTO {
 	
-	@Column(name = "id_biglietti")
+	@Column(name = EdicolaCostanti.ID_DATA_END_POINT)
 	private Long id;
 	
 	@NotNull(message = "Il numero è obbligatorio")
