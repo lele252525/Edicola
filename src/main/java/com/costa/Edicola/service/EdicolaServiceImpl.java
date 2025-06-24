@@ -40,7 +40,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		}
 		Giornaliero giornaliero = DTOmapper.DtoToGiornaliero(bigliettoDTO);
 		giornaliero.setDataEmissione(LocalDateTime.now());
-		edilRepo.save(giornaliero);
+		edilRepoGiorn.save(giornaliero);
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		}
 		Settimanale settimanale = DTOmapper.DtoToSettimanale(bigliettoDTO);
 		settimanale.setDataEmissione(LocalDateTime.now());
-		edilRepo.save(settimanale);
+		edilRepoSett.save(settimanale);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		}
 		Mensile mensile = DTOmapper.DtoToMensile(bigliettoDTO);
 		mensile.setDataEmissione(LocalDateTime.now());
-		edilRepo.save(mensile);
+		edilRepoMens.save(mensile);
 	}
 	
 	@Override
