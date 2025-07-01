@@ -10,7 +10,7 @@ public class EdicolaApplication {
 		SpringApplication.run(EdicolaApplication.class, args);
 		
 		System.out.println();
-		System.out.println("Selezionare: numero, tipo (1. Giornaliero - 2. Settimanale - 3. Mensile) e scadenza.");
+		System.out.println("Selezionare: tipologia (1. Giornaliero - 2. Settimanale - 3. Mensile), numero e scadenza.");
 	}
 
 }

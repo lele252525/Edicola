@@ -12,7 +12,7 @@ public class DTOmapper {
 		giornaliero.setId(bigliettoDTO.getId());
 		giornaliero.setNumero(bigliettoDTO.getNumero());
 		giornaliero.getTipo();
-		giornaliero.setScadenza(bigliettoDTO.getValidità());
+		giornaliero.setScadenza(bigliettoDTO.getScadenza());
 		return giornaliero;
 	}
 	
@@ -21,7 +21,7 @@ public class DTOmapper {
 		bigliettoDTO.setId(giornaliero.getId());
 		bigliettoDTO.setNumero(giornaliero.getNumero());
 		bigliettoDTO.setTipo(giornaliero.getTipo());
-		bigliettoDTO.setValidità(giornaliero.getScadenza());
+		bigliettoDTO.setScadenza(giornaliero.getScadenza());
 		return bigliettoDTO;
 	}
 	
@@ -31,7 +31,7 @@ public class DTOmapper {
 		settimanale.setId(bigliettoDTO.getId());
 		settimanale.setNumero(bigliettoDTO.getNumero());
 		settimanale.getTipo();
-		settimanale.setScadenza(bigliettoDTO.getValidità());
+		settimanale.setScadenza(bigliettoDTO.getScadenza());
 		return settimanale;
 	}
 	
@@ -40,7 +40,7 @@ public class DTOmapper {
 		bigliettoDTO.setId(settimanale.getId());
 		bigliettoDTO.setNumero(settimanale.getNumero());
 		bigliettoDTO.setTipo(settimanale.getTipo());
-		bigliettoDTO.setValidità(settimanale.getScadenza());
+		bigliettoDTO.setScadenza(settimanale.getScadenza());
 		return bigliettoDTO;
 	}
 	
@@ -50,7 +50,7 @@ public class DTOmapper {
 		mensile.setId(bigliettoDTO.getId());
 		mensile.setNumero(bigliettoDTO.getNumero());
 		mensile.getTipo();
-		mensile.setScadenza(bigliettoDTO.getValidità());
+		mensile.setScadenza(bigliettoDTO.getScadenza());
 		return mensile;
 	}
 	
@@ -59,7 +59,7 @@ public class DTOmapper {
 		bigliettoDTO.setId(mensile.getId());
 		bigliettoDTO.setNumero(mensile.getNumero());
 		bigliettoDTO.setTipo(mensile.getTipo());
-		bigliettoDTO.setValidità(mensile.getScadenza());
+		bigliettoDTO.setScadenza(mensile.getScadenza());
 		return bigliettoDTO;
 	}
 	

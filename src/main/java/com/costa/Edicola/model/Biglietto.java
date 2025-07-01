@@ -8,6 +8,8 @@ import com.costa.Edicola.costanti.EdicolaCostanti;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -22,6 +24,8 @@ import lombok.ToString;
 public class Biglietto {
 	
 	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = EdicolaCostanti.ID_GIORNALIERO_DATA_END_POINT)
 	private Long id;
 	
 	@Column(name = EdicolaCostanti.NUMERO_DATA_END_POINT)

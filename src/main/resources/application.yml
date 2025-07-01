@@ -7,7 +7,7 @@ spring:
     name: Edicola 
   datasource: 
     
-    url: jdbc:mysql://localhost:3306/club_tennis
+    url: jdbc:mysql://localhost:3306/edicola
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
