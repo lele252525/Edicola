@@ -30,6 +30,6 @@ public class Giornaliero extends Biglietto {
 	private String tipo = "Giornaliero";
 	
 	@Column(name = EdicolaCostanti.SCADENZA_END_POINT)
-	private int giornoValidità;
+	private int scadenza;
 	
 }

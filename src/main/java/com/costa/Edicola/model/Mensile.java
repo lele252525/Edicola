@@ -28,6 +28,6 @@ public class Mensile extends Biglietto {
 	private String tipo = "Mensile";
 	
 	@Column(name = EdicolaCostanti.SCADENZA_END_POINT)
-	private int meseValidità;
+	private int scadenza;
 	
 }

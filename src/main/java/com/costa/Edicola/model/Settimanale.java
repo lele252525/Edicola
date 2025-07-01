@@ -28,6 +28,6 @@ public class Settimanale extends Biglietto {
 	private String tipo = "Settimanale";
 	
 	@Column(name = EdicolaCostanti.SCADENZA_END_POINT)
-	private int settimanaValidità;
+	private int scadenza;
 	
 }

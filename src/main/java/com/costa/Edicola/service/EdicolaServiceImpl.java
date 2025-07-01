@@ -42,7 +42,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		giornaliero.setDataEmissione(LocalDateTime.now());
 		edilRepoGiorn.save(giornaliero);
 	}
-
+	
 	@Override
 	public void createSettimanale(BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getId() != null) {
@@ -55,7 +55,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		settimanale.setDataEmissione(LocalDateTime.now());
 		edilRepoSett.save(settimanale);
 	}
-
+	
 	@Override
 	public void createMensile(BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getId() != null) {
