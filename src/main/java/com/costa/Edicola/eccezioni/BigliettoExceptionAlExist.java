@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @SuppressWarnings("serial")
 @ResponseStatus (value = HttpStatus.BAD_REQUEST)
-public class BigliettoExceptionExistAL extends RuntimeException{
+public class BigliettoExceptionAlExist extends RuntimeException{
 
-	public BigliettoExceptionExistAL(String message) {super(message);}
+	public BigliettoExceptionAlExist(String message) {super(message);}
 	
 }

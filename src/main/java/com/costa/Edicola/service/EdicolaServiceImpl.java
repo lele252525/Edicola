@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.costa.Edicola.DTO.BigliettoDTO;
 import com.costa.Edicola.DTO.DTOmapper;
-import com.costa.Edicola.eccezioni.BigliettoExceptionExistAL;
+import com.costa.Edicola.eccezioni.BigliettoExceptionAlExist;
 import com.costa.Edicola.model.Biglietto;
 import com.costa.Edicola.model.Giornaliero;
 import com.costa.Edicola.model.Mensile;
@@ -35,7 +35,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		if(bigliettoDTO.getId() != null) {
 			Optional<Biglietto> controllo = edilRepo.findById(bigliettoDTO.getId());
 			if (controllo.isPresent()) {
-				throw new BigliettoExceptionExistAL("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
+				throw new BigliettoExceptionAlExist("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
 			}
 		}
 		Giornaliero giornaliero = DTOmapper.DtoToGiornaliero(bigliettoDTO);
@@ -48,7 +48,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		if(bigliettoDTO.getId() != null) {
 			Optional<Biglietto> controllo = edilRepo.findById(bigliettoDTO.getId());
 			if (controllo.isPresent()) {
-				throw new BigliettoExceptionExistAL("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
+				throw new BigliettoExceptionAlExist("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
 			}
 		}
 		Settimanale settimanale = DTOmapper.DtoToSettimanale(bigliettoDTO);
@@ -61,7 +61,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 		if(bigliettoDTO.getId() != null) {
 			Optional<Biglietto> controllo = edilRepo.findById(bigliettoDTO.getId());
 			if (controllo.isPresent()) {
-				throw new BigliettoExceptionExistAL("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
+				throw new BigliettoExceptionAlExist("Il biglietto con il seguente numero " + bigliettoDTO.getNumero() + " è già esistente");
 			}
 		}
 		Mensile mensile = DTOmapper.DtoToMensile(bigliettoDTO);
@@ -90,7 +90,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 	@Override
 	public BigliettoDTO controlloGiorno(BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getScadenza() > 31 || bigliettoDTO.getScadenza() < 0) {
-			throw new BigliettoExceptionExistAL("Il giorno: " + bigliettoDTO.getScadenza() + " non rientra nella cardinalità del calendario.");
+			throw new BigliettoExceptionAlExist("Il giorno: " + bigliettoDTO.getScadenza() + " non rientra nella cardinalità del calendario.");
 		}
 		return bigliettoDTO;
 	}
@@ -98,7 +98,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 	@Override
 	public BigliettoDTO controlloSettimana(BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getScadenza() > 4 || bigliettoDTO.getScadenza() < 0) {
-			throw new BigliettoExceptionExistAL("La settimana: " + bigliettoDTO.getScadenza() + " non rientra nella cardinalità del calendario.");
+			throw new BigliettoExceptionAlExist("La settimana: " + bigliettoDTO.getScadenza() + " non rientra nella cardinalità del calendario.");
 		}
 		return bigliettoDTO;
 	}
@@ -106,7 +106,7 @@ public class EdicolaServiceImpl implements EdicolaService{
 	@Override
 	public BigliettoDTO controlloMese(BigliettoDTO bigliettoDTO) {
 		if(bigliettoDTO.getScadenza() > 12 || bigliettoDTO.getScadenza() < 0) {
-			throw new BigliettoExceptionExistAL("Il mese: " + bigliettoDTO.getScadenza() + " non rientra nella cardinalità del calendario.");
+			throw new BigliettoExceptionAlExist("Il mese: " + bigliettoDTO.getScadenza() + " non rientra nella cardinalità del calendario.");
 		}
 		return bigliettoDTO;
 	}
