@@ -15,7 +15,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "biglietti")
+@Table(name = EdicolaCostanti.BIGLIETTI_END_POINT)
 @Getter @Setter @ToString
 @AllArgsConstructor
 @NoArgsConstructor

@@ -21,5 +21,7 @@ public class EdicolaCostanti {
     public static final String DATA_EMISSIONE_END_POINT = "data_emissione";
     public static final String TIPO_END_POINT = "tipo";
     public static final String SCADENZA_END_POINT = "scadenza";
+    public static final String BIGLIETTI_END_POINT = "biglietti";
+    public static final String UTENTE_END_POINT = "utente";
     
 }
