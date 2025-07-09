@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class BigliettoDTO {
 	
-	@Column(name = EdicolaCostanti.ID_DATA_END_POINT)
+	@Column(name = EdicolaCostanti.ID_BIGLIETTI_END_POINT)
 	private Long id;
 	
 	@NotNull(message = "Inserire tipologia: '1' Giornaliero, '2' Settimanale, '3' Mensile")

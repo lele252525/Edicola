@@ -21,7 +21,7 @@ import lombok.ToString;
 public class Mensile extends Biglietto {
 	
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name = EdicolaCostanti.ID_DATA_END_POINT)
+	@Column(name = EdicolaCostanti.ID_BIGLIETTI_END_POINT)
 	private Long id;
 	
 	@Column(name = EdicolaCostanti.TIPO_END_POINT)

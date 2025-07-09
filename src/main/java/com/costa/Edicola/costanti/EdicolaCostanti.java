@@ -14,14 +14,20 @@ public class EdicolaCostanti {
     public static final String STATUS_500 = "500";
     public static final String STATUS_500_MESSAGE = "Errore del server";
     
-    public static final String ID_DATA_END_POINT = "id_biglietti";
     public static final String ID_GIORNALIERO_DATA_END_POINT = "id_giornaliero";
-  
+    
+    public static final String BIGLIETTI_END_POINT = "biglietti";
+    public static final String ID_BIGLIETTI_END_POINT = "id_biglietti";
     public static final String NUMERO_DATA_END_POINT = "numero";
     public static final String DATA_EMISSIONE_END_POINT = "data_emissione";
     public static final String TIPO_END_POINT = "tipo";
     public static final String SCADENZA_END_POINT = "scadenza";
-    public static final String BIGLIETTI_END_POINT = "biglietti";
+    
     public static final String UTENTE_END_POINT = "utente";
+    public static final String ID_UTENTE_END_POINT = "id_utente";
+    public static final String NOME_END_POINT = "nome";
+    public static final String COGNOME_END_POINT = "cognome";
+    public static final String ETA_END_POINT = "eta";
+    public static final String SESSO_END_POINT = "sesso";
     
 }
