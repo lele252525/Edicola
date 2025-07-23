@@ -8,15 +8,19 @@ import org.springframework.stereotype.Service;
 
 import com.costa.Edicola.DTO.BigliettoDTO;
 import com.costa.Edicola.DTO.DTOmapper;
+import com.costa.Edicola.DTO.UtenteDTO;
 import com.costa.Edicola.eccezioni.BigliettoExceptionAlExist;
+import com.costa.Edicola.eccezioni.UtenteExceptionAlExist;
 import com.costa.Edicola.model.Biglietto;
 import com.costa.Edicola.model.Giornaliero;
 import com.costa.Edicola.model.Mensile;
 import com.costa.Edicola.model.Settimanale;
+import com.costa.Edicola.model.Utente;
 import com.costa.Edicola.repository.EdicolaReposBigl;
 import com.costa.Edicola.repository.EdicolaRepositoryGiorn;
 import com.costa.Edicola.repository.EdicolaRepositoryMens;
 import com.costa.Edicola.repository.EdicolaRepositorySett;
+import com.costa.Edicola.repository.EdicolaRepositoryUtente;
 
 @Service
 public class EdicolaServiceImpl implements EdicolaService{
@@ -29,6 +33,8 @@ public class EdicolaServiceImpl implements EdicolaService{
 	EdicolaRepositorySett edilRepoSett;
 	@Autowired
 	EdicolaRepositoryMens edilRepoMens;
+	@Autowired
+	EdicolaRepositoryUtente edilRepoUser;
 	
 	@Override
 	public void createGiornaliero(BigliettoDTO bigliettoDTO) {
@@ -85,6 +91,31 @@ public class EdicolaServiceImpl implements EdicolaService{
 			System.out.println("Il biglietto non esiste...");
 		}
 		return dtoBiglietto;
+	}
+	
+	@Override
+	public void createUser(UtenteDTO utenteDTO) {
+		if(utenteDTO.getId() != null) {
+			Optional<Utente> controllo = edilRepoUser.findById(utenteDTO.getId());
+			if(controllo.isPresent()) {
+				throw new UtenteExceptionAlExist("L'Utente è già esistente");
+			}
+		}
+		Utente utente = DTOmapper.DtoToUser(utenteDTO);
+		utente.setDataIscrizione(LocalDateTime.now());
+		edilRepoUser.save(utente);
+	}
+
+	@Override
+	public UtenteDTO readUser(Long id) {
+		UtenteDTO dtoUtente = new UtenteDTO();
+		Optional<Utente> utente = edilRepoUser.findById(id);
+		if(utente.isPresent()) {
+			dtoUtente = DTOmapper.userToDto(utente.get());
+		} else if (utente.isEmpty()) {
+			System.out.println("L'Utente è inesistente");
+		}
+		return dtoUtente;
 	}
 	
 	@Override

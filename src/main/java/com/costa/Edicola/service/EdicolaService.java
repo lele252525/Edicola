@@ -1,6 +1,7 @@
 package com.costa.Edicola.service;
 
 import com.costa.Edicola.DTO.BigliettoDTO;
+import com.costa.Edicola.DTO.UtenteDTO;
 
 public interface EdicolaService {
 	
@@ -13,5 +14,10 @@ public interface EdicolaService {
 	public void createMensile(BigliettoDTO bigliettoDTO);
 	
 	public BigliettoDTO readBiglietto(Long id);
+	
+	
+	public void createUser(UtenteDTO utenteDTO);
+	
+	public UtenteDTO readUser(Long id);
 	
 }

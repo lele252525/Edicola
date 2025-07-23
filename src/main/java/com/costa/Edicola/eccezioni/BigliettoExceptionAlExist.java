@@ -8,5 +8,4 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class BigliettoExceptionAlExist extends RuntimeException{
 
 	public BigliettoExceptionAlExist(String message) {super(message);}
-	
 }

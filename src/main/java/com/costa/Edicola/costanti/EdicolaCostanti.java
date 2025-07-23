@@ -29,5 +29,5 @@ public class EdicolaCostanti {
     public static final String COGNOME_END_POINT = "cognome";
     public static final String ETA_END_POINT = "eta";
     public static final String SESSO_END_POINT = "sesso";
-    
+    public static final String DATA_ISCRIZIONE_END_POINT = "data_iscrizione";
 }

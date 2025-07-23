@@ -1,5 +1,7 @@
 package com.costa.Edicola.model;
 
+import java.time.LocalDateTime;
+
 import com.costa.Edicola.costanti.EdicolaCostanti;
 
 import jakarta.persistence.Column;
@@ -39,5 +41,7 @@ public class Utente {
 	@NotNull
 	@Column(name = EdicolaCostanti.SESSO_END_POINT)
 	private boolean sesso;
+	@Column(name = EdicolaCostanti.DATA_ISCRIZIONE_END_POINT)
+	private LocalDateTime dataIscrizione;
 	
 }

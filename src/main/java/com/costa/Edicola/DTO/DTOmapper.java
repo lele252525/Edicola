@@ -3,6 +3,7 @@ package com.costa.Edicola.DTO;
 import com.costa.Edicola.model.Giornaliero;
 import com.costa.Edicola.model.Mensile;
 import com.costa.Edicola.model.Settimanale;
+import com.costa.Edicola.model.Utente;
 
 public class DTOmapper {
 	
@@ -61,6 +62,26 @@ public class DTOmapper {
 		bigliettoDTO.setTipo(mensile.getTipo());
 		bigliettoDTO.setScadenza(mensile.getScadenza());
 		return bigliettoDTO;
+	}
+	
+	public static Utente DtoToUser(UtenteDTO utenteDTO) {
+		Utente utente = new Utente();
+		utente.setId(utenteDTO.getId());
+		utente.setNome(utenteDTO.getNome());
+		utente.setCognome(utenteDTO.getCognome());
+		utente.setEta(utenteDTO.getEta());
+		utente.setSesso(utenteDTO.isSesso());
+		return utente;
+	}
+	
+	public static UtenteDTO userToDto(Utente utente) {
+		UtenteDTO utenteDTO = new UtenteDTO();
+		utenteDTO.setId(utente.getId());
+		utenteDTO.setNome(utente.getNome());
+		utenteDTO.setCognome(utente.getCognome());
+		utenteDTO.setEta(utente.getEta());
+		utenteDTO.setSesso(utente.isSesso());
+		return utenteDTO;
 	}
 	
 }
