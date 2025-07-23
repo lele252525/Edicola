@@ -7,6 +7,9 @@ public class EdicolaCostanti {
 	public static final String LEGGI_BIGL_END_POINT = "/leggi_biglietto";
 	public static final String CANC_BIGL_END_POINT = "/cancella_biglietto";
 	
+	public static final String NEW_USER_END_POINT = "/crea_utente";
+	public static final String READ_USER_END_POINT = "/leggi_utente";
+	
 	public static final String STATUS_200 = "200";
     public static final String STATUS_200_MESSAGE = "Operazione completata";
     public static final String STATUS_201 = "201";
