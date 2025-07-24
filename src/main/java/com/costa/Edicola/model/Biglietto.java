@@ -25,7 +25,7 @@ public class Biglietto {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name = EdicolaCostanti.ID_GIORNALIERO_DATA_END_POINT)
+	@Column(name = EdicolaCostanti.ID_BIGLIETTI_END_POINT)
 	private Long id;
 	
 	@Column(name = EdicolaCostanti.NUMERO_DATA_END_POINT)

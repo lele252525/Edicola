@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.costa.Edicola.DTO.BigliettoDTO;
 import com.costa.Edicola.DTO.ResponseDTO;
+import com.costa.Edicola.DTO.UtenteDTO;
 import com.costa.Edicola.costanti.EdicolaCostanti;
 import com.costa.Edicola.repository.EdicolaReposBigl;
+import com.costa.Edicola.repository.EdicolaRepositoryUtente;
 import com.costa.Edicola.service.EdicolaService;
 
 import jakarta.validation.Valid;
@@ -27,6 +29,8 @@ public class EdicolaController {
 	
 	@Autowired
 	EdicolaReposBigl edilRepo;
+	@Autowired
+	EdicolaRepositoryUtente edilUser;
 	@Autowired
 	EdicolaService edilService;
 	
@@ -60,6 +64,30 @@ public class EdicolaController {
 	@DeleteMapping(EdicolaCostanti.CANC_BIGL_END_POINT)
 	public ResponseEntity<ResponseDTO> cancellaBiglietto (@RequestParam Long id) {
 		edilRepo.deleteById(id);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(new ResponseDTO(EdicolaCostanti.STATUS_200, EdicolaCostanti.STATUS_200_MESSAGE));
+	}
+	
+	@PostMapping(EdicolaCostanti.NEW_USER_END_POINT)
+	public ResponseEntity<ResponseDTO> creaUtente (@Valid @RequestBody UtenteDTO utenteDTO) {
+		edilService.createUser(utenteDTO);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(new ResponseDTO(EdicolaCostanti.STATUS_202, EdicolaCostanti.STATUS_202_MESSAGE));	
+	}
+	
+	@GetMapping(EdicolaCostanti.READ_USER_END_POINT)
+	public ResponseEntity<UtenteDTO> leggiUtente (@RequestParam Long id) {
+		UtenteDTO utenteDTO = edilService.readUser(id);
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(utenteDTO);
+	}
+	
+	@DeleteMapping(EdicolaCostanti.DEL_USER_END_POINT)
+	public ResponseEntity<ResponseDTO> cancellaUtente (@RequestParam Long id) {
+		edilUser.deleteById(id);
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(new ResponseDTO(EdicolaCostanti.STATUS_200, EdicolaCostanti.STATUS_200_MESSAGE));

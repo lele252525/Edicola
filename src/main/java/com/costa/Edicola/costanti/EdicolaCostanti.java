@@ -9,15 +9,16 @@ public class EdicolaCostanti {
 	
 	public static final String NEW_USER_END_POINT = "/crea_utente";
 	public static final String READ_USER_END_POINT = "/leggi_utente";
+	public static final String DEL_USER_END_POINT = "/cancella_utente";
 	
 	public static final String STATUS_200 = "200";
     public static final String STATUS_200_MESSAGE = "Operazione completata";
     public static final String STATUS_201 = "201";
     public static final String STATUS_201_MESSAGE = "Biglietto registrato con successo";
+    public static final String STATUS_202 = "202";
+    public static final String STATUS_202_MESSAGE = "Utente registrato con successo";
     public static final String STATUS_500 = "500";
     public static final String STATUS_500_MESSAGE = "Errore del server";
-    
-    public static final String ID_GIORNALIERO_DATA_END_POINT = "id_giornaliero";
     
     public static final String BIGLIETTI_END_POINT = "biglietti";
     public static final String ID_BIGLIETTI_END_POINT = "id_biglietti";

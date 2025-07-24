@@ -21,7 +21,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Giornaliero extends Biglietto {
 	
-	@Column(name = EdicolaCostanti.ID_GIORNALIERO_DATA_END_POINT)
+	@Column(name = EdicolaCostanti.ID_BIGLIETTI_END_POINT)
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
