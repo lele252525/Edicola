@@ -3,14 +3,18 @@ package com.costa.Edicola.DTO;
 import com.costa.Edicola.costanti.EdicolaCostanti;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class UtenteDTO {
 	
-	@NotNull
+	@Id
 	@Column(name = EdicolaCostanti.ID_UTENTE_END_POINT)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull(message = "Il nome è obbligatorio")

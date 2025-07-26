@@ -32,15 +32,19 @@ public class Utente {
 	@NotNull
 	@Column(name = EdicolaCostanti.NOME_END_POINT)
 	private String nome;
+	
 	@NotNull
 	@Column(name = EdicolaCostanti.COGNOME_END_POINT)
 	private String cognome;
+	
 	@NotNull
 	@Column(name = EdicolaCostanti.ETA_END_POINT)
 	private int eta;
+	
 	@NotNull
 	@Column(name = EdicolaCostanti.SESSO_END_POINT)
 	private boolean sesso;
+	
 	@Column(name = EdicolaCostanti.DATA_ISCRIZIONE_END_POINT)
 	private LocalDateTime dataIscrizione;
 	
