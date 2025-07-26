@@ -12,9 +12,7 @@ import lombok.Data;
 @Data
 public class UtenteDTO {
 	
-	@Id
 	@Column(name = EdicolaCostanti.ID_UTENTE_END_POINT)
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull(message = "Il nome è obbligatorio")
